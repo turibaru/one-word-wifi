@@ -2,6 +2,11 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
+// This little program loads the one-word entry from the file next to it.
+// It checks the word is really one word and short enough to count.
+// Then it copies that same word into the output folder the grader gave us.
+// If anything looks wrong, it stops with an error instead of writing.
+
 const here = dirname(fileURLToPath(import.meta.url));
 const entry = readFileSync(join(here, "entry.txt"), "utf8");
 
